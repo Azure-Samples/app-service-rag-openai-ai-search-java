@@ -1,0 +1,9 @@
+name: spring-boot-rag-openai-ai-search
+infra:
+  provider: bicep
+  path: infra
+services:
+  web:
+    project: .
+    language: java
+    host: appservice
