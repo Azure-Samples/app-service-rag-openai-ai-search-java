@@ -86,7 +86,7 @@ resource appService 'Microsoft.Web/sites@2022-03-01' = {
           value: openAiEmbeddingDeploymentName
         }
         {
-          name: 'AZURE_SEARCH_SERVICE_URL'
+          name: 'AZURE_SEARCH_URL'
           value: 'https://${searchServiceName}.search.windows.net'
         }
         {
@@ -397,15 +397,8 @@ resource userOpenAIContributorRoleAssignment 'Microsoft.Authorization/roleAssign
 // Output values
 // ----------------------------------------------------
 
-output AZURE_LOCATION string = location
-output AZURE_TENANT_ID string = tenant().tenantId
-output APPSERVICE_NAME string = appService.name
-output APPSERVICE_URI string = 'https://${appService.properties.defaultHostName}'
 output AZURE_OPENAI_ENDPOINT string = openAiAccount.properties.endpoint
-output OPENAI_NAME string = openAiAccount.name
-output SEARCH_SERVICE_NAME string = searchService.name
-output AZURE_SEARCH_SERVICE_URL string = 'https://${searchService.name}.search.windows.net'
-output STORAGE_ACCOUNT_NAME string = storageAccount.name
+output AZURE_SEARCH_URL string = 'https://${searchService.name}.search.windows.net'
 
 // ----------------------------------------------------
 // App Service diagnostics settings
